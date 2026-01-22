@@ -1,0 +1,15 @@
+Django>=4.2
+djangorestframework
+psycopg2-binary
+django-cors-headers
+django-environ
+django-storages[boto3]
+boto3
+celery[redis]
+redis
+drf-yasg          # optional for OpenAPI
+gunicorn
+django-rest-framework-simplejwt
+psycopg[binary]
+django-debug-toolbar   # dev only
+pgvector               # if using PGVector (python lib wrapper)

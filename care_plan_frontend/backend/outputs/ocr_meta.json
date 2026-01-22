@@ -1,0 +1,26 @@
+[
+  {
+    "page": 1,
+    "image_path": "outputs\\ocr_pages\\page_001.png",
+    "tsv_path": "outputs\\ocr_pages\\page_001.tsv",
+    "text_len": 1380
+  },
+  {
+    "page": 2,
+    "image_path": "outputs\\ocr_pages\\page_002.png",
+    "tsv_path": "outputs\\ocr_pages\\page_002.tsv",
+    "text_len": 2581
+  },
+  {
+    "page": 3,
+    "image_path": "outputs\\ocr_pages\\page_003.png",
+    "tsv_path": "outputs\\ocr_pages\\page_003.tsv",
+    "text_len": 2016
+  },
+  {
+    "page": 4,
+    "image_path": "outputs\\ocr_pages\\page_004.png",
+    "tsv_path": "outputs\\ocr_pages\\page_004.tsv",
+    "text_len": 1549
+  }
+]

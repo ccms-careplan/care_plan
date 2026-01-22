@@ -1,0 +1,87 @@
+# ===============================
+# Python
+# ===============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# ===============================
+# Virtual Environments
+# ===============================
+.venv/
+venv/
+env/
+
+# ===============================
+# Environment variables
+# ===============================
+.env
+.env.*
+!.env.example
+
+# ===============================
+# Django
+# ===============================
+db.sqlite3
+*.sqlite3
+
+media/
+staticfiles/
+
+# Django migrations (optional – usually keep them)
+# */migrations/*
+# !*/migrations/__init__.py
+
+# ===============================
+# Logs
+# ===============================
+*.log
+
+# ===============================
+# IDE / Editor files
+# ===============================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===============================
+# OS generated files
+# ===============================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===============================
+# Docker
+# ===============================
+*.pid
+docker-data/
+
+# ===============================
+# Test / Coverage
+# ===============================
+.coverage
+htmlcov/
+.pytest_cache/
+
+# ===============================
+# Build artifacts
+# ===============================
+build/
+dist/
+*.egg-info/
+
+# ===============================
+# Node (if frontend ever added)
+# ===============================
+node_modules/
+
+# ===============================
+# Secrets / Certificates
+# ===============================
+*.pem
+*.key
+>>>>>>> 0cb4fb9 (add all file to repo)

@@ -1,0 +1,600 @@
+
+
+
+
+
+
+
+
+
+
+
+{
+  "schema_version": "afh_preliminary_service_plan_v1",
+  "document": {
+    "title": "SERVICE PLAN (Part B) / NEGOTIATED CARE PLAN (Part C)",
+    "header": {
+      "resident_name": { "type": "text" },
+      "dob": { "type": "date" },
+      "date": { "type": "date" },
+      "prepared_by": { "type": "text" },
+      "prepared_by_phone": { "type": "text" }
+    }
+  },
+
+  "acuity_level_of_care_scale": [
+    {
+      "value": 1,
+      "label": "Independent, no assistance needed, uses equipment appropriately, no “special” needs."
+    },
+    {
+      "value": 2,
+      "label": "Verbal prompts and cues only needed to complete care or to use equipment appropriately."
+    },
+    {
+      "value": 3,
+      "label": "Physical assistance from caregiver needed to accomplish care and may need verbal cues to use equipment appropriately."
+    },
+    {
+      "value": 4,
+      "label": "Dependent on caregiver to accomplish care."
+    }
+  ],
+
+  "parts": {
+    "part_12_functional_ability": {
+      "title": "PART 12 - FUNCTIONAL ABILITY",
+      "sections": [
+        {
+          "id": "eating_and_diet",
+          "title": "EATING AND DIET",
+          "acuity_level": { "type": "number", "allowed": [1, 2, 3, 4] },
+
+          "service_plan": {
+            "checkboxes": [
+              { "key": "meal_prepare_serve_clean_3_meals", "label": "Prepare, serve and clean up 3 meals a day.", "checked": false },
+              { "key": "meal_snacks_requested", "label": "Provide snacks as requested.", "checked": false },
+              { "key": "meal_clothing_protectors", "label": "Provide clothing protectors if needed.", "checked": false },
+              { "key": "meal_cue_encourage_eat", "label": "Cue and encourage resident to eat.", "checked": false },
+              { "key": "meal_cut_foods_setup_plate", "label": "Cut up foods, butter bread, set-up plate.", "checked": false },
+              { "key": "meal_aspiration_risk_observe_assist", "label": "Observe and assist for aspiration risk.", "checked": false },
+              { "key": "meal_feed_prn", "label": "Feed resident PRN.", "checked": false },
+              { "key": "meal_portion_sizes", "label": "Serve appropriate-size portions.", "checked": false },
+              { "key": "meal_monitor_record_intake", "label": "Monitor and record dietary intake.", "checked": false },
+              { "key": "meal_special_diet_doctors_order", "label": "Observe special diet requirements per doctor's order.", "checked": false },
+              { "key": "meal_avoid_allergens", "label": "Avoid foods that cause allergic or adverse reactions.", "checked": false },
+              { "key": "meal_fluids_every_2_hours", "label": "Provide adequate fluids every two hours during the day.", "checked": false },
+              { "key": "meal_allow_preferences", "label": "Allow food preferences when possible.", "checked": false },
+              { "key": "meal_weigh_monthly_if_possible", "label": "Weigh monthly (if possible)", "checked": false },
+              { "key": "meal_adequate_setting", "label": "Provide adequate setting for meals.", "checked": false },
+              { "key": "meal_in_room_prn", "label": "Provide meals in room - PRN.", "checked": false },
+              { "key": "meal_thickeners_prn_md_orders", "label": "Add thickeners to food PRN MD orders.", "checked": false },
+              { "key": "meal_5_servings_fruit_veg_daily", "label": "Provide 5 servings of fruits /vegetables daily.", "checked": false }
+            ],
+            "other": { "type": "array", "items": { "type": "text" } }
+          },
+
+          "goals": { "type": "textarea" },
+
+          "negotiated_care_plan": {
+            "special_diet": { "type": "text" },
+            "preferences": { "type": "textarea" },
+            "dislikes": { "type": "textarea" },
+
+            "general_appetite": {
+              "type": "checkbox_group_single",
+              "items": [
+                { "key": "appetite_good", "label": "Good", "checked": false },
+                { "key": "appetite_fair", "label": "Fair", "checked": false },
+                { "key": "appetite_poor", "label": "Poor", "checked": false }
+              ]
+            },
+
+            "desired_mealtimes": {
+              "breakfast": { "type": "text" },
+              "lunch": { "type": "text" },
+              "dinner": { "type": "text" }
+            },
+
+            "caregiver_instructions": { "type": "textarea" },
+            "needs_special_equipment_requirements_issues": { "type": "textarea" },
+            "notes_and_updates": { "type": "textarea" }
+          }
+        },
+
+        {
+          "id": "ambulation_and_transferring",
+          "title": "AMBULATION AND TRANSFERRING",
+          "acuity_level": { "type": "number", "allowed": [1, 2, 3, 4] },
+
+          "service_plan": {
+            "checkboxes": [
+              { "key": "amb_observe_safety_changes", "label": "Observe for safety, be alert for any changes in abilities.", "checked": false },
+              { "key": "amb_sba_walking", "label": "Stand by assist for safety when walking.", "checked": false },
+              { "key": "amb_sba_transfers_furniture_cars", "label": "Stand by assist for transfers from furniture and cars.", "checked": false },
+              { "key": "amb_sba_stairs", "label": "Stand by assist on stairs.", "checked": false },
+              { "key": "amb_sba_outside_uneven", "label": "Stand by assist when outside or on uneven ground.", "checked": false },
+              { "key": "amb_gait_belt_required", "label": "Gait belt required for assistance.", "checked": false },
+              { "key": "amb_two_person_walk", "label": "Assist for safety when walking - 2 person", "checked": false },
+              { "key": "amb_assist_transfers_furniture_cars", "label": "Assist for transfers from furniture and cars.", "checked": false },
+              { "key": "amb_assist_stairs", "label": "Assist on stairs.", "checked": false },
+              { "key": "amb_assist_outside_uneven", "label": "Assist when outside or on uneven ground.", "checked": false },
+              { "key": "amb_wheelchair_in_out_assist", "label": "Assistance required into and out of wheelchair.", "checked": false },
+              { "key": "amb_encourage_self_propel_wc", "label": "Encourage resident to self-propel wheelchair.", "checked": false },
+              { "key": "amb_remind_use_walker", "label": "Remind resident to use walker.", "checked": false },
+              { "key": "amb_encourage_physical_activity", "label": "Encourage resident to be physically active.", "checked": false },
+              { "key": "amb_assist_exercises_pt", "label": "Assist with exercises as determined by Physical Therapy.", "checked": false },
+              { "key": "amb_encourage_rom_adls", "label": "Encourage range of motion during ADL’s.", "checked": false },
+              { "key": "amb_dependent_one_person_transfer", "label": "Dependent on one-person transfer.", "checked": false },
+              { "key": "amb_dependent_two_person_transfer", "label": "Dependent on two-person transfer.", "checked": false },
+              { "key": "amb_total_hoyer_lift_transfer", "label": "Total Hoyer Lift transfer.", "checked": false }
+            ],
+            "other": { "type": "array", "items": { "type": "text" } }
+          },
+
+          "goal": { "type": "textarea" },
+
+          "negotiated_care_plan": {
+            "caregiver_instructions": { "type": "textarea" },
+            "needs_special_equipment_requirements_issues": { "type": "textarea" },
+            "equipment": { "type": "text" },
+            "notes_and_updates": { "type": "textarea" }
+          }
+        },
+
+        {
+          "id": "toileting",
+          "title": "TOILETING",
+          "acuity_level": { "type": "number", "allowed": [1, 2, 3, 4] },
+
+          "service_plan": {
+            "checkboxes": [
+              { "key": "toilet_remind_every_2_hours", "label": "Remind to resident to use toilet every two hours.", "checked": false },
+              { "key": "toilet_assist_to_toilet", "label": "Assist to the toilet as needed.", "checked": false },
+              { "key": "toilet_wash_hands_after", "label": "Wash resident's hands after they use the toilet.", "checked": false },
+              { "key": "toilet_remind_wash_hands", "label": "Remind resident to wash hands after toilet use.", "checked": false },
+              { "key": "toilet_provide_washcloth_cleanliness", "label": "Provide washcloth for cleanliness after they use the toilet.", "checked": false },
+              { "key": "toilet_assist_clothing_on_off", "label": "Assist with clothing on and off as needed to toilet.", "checked": false },
+              { "key": "toilet_clean_perineal_twice_daily_bm_prn", "label": "Clean perineal area twice daily, after bowel movement and as needed.", "checked": false },
+              { "key": "toilet_change_briefs_prn", "label": "Change briefs as needed.", "checked": false },
+              { "key": "toilet_change_urinary_pads_2_3_hours", "label": "Change urinary pads every 2-3 hours and as needed.", "checked": false },
+              { "key": "toilet_bedside_commode_setup_empty_clean", "label": "Set up, empty and clean bedside commode.", "checked": false },
+              { "key": "toilet_urinal_setup_empty_clean", "label": "Set up, empty and clean urinal.", "checked": false },
+              { "key": "toilet_bedpan_setup_empty_clean", "label": "Set up, empty and clean bedpan.", "checked": false },
+              { "key": "toilet_condom_catheter_clean_bag_daily", "label": "Apply condom catheter and clean reservoir bag daily.", "checked": false },
+              { "key": "toilet_provide_privacy", "label": "Provide privacy for resident while toileting.", "checked": false },
+              { "key": "toilet_monitor_urine_clarity_odor_color", "label": "Monitor urine for clarity, odor and color.", "checked": false },
+              { "key": "toilet_document_report_abnormal_urine", "label": "Document and report abnormal urine.", "checked": false },
+              { "key": "toilet_monitor_stool_consistency_regular", "label": "Monitor stool for consistency and regularity.", "checked": false },
+              { "key": "toilet_document_report_abnormal_stool", "label": "Document and report abnormal or irregular stool.", "checked": false },
+              { "key": "toilet_limit_fluids_after_6pm", "label": "Limit fluids after 6:00 PM to decrease nightly urination.", "checked": false }
+            ],
+            "other": { "type": "array", "items": { "type": "text" } }
+          },
+
+          "goal": { "type": "textarea" },
+
+          "negotiated_care_plan": {
+            "ostomy_care_rn_delegated_specify": { "type": "text" },
+            "catheter_type": { "type": "text" },
+            "briefs_size": { "type": "text" },
+
+            "toileting_supplies": {
+              "type": "checkbox_group",
+              "items": [
+                { "key": "toilet_supply_urinary_pads", "label": "Urinary pads", "checked": false },
+                { "key": "toilet_supply_urinal", "label": "Urinal", "checked": false },
+                { "key": "toilet_supply_bedside_commode", "label": "Bedside commode", "checked": false },
+                { "key": "toilet_supply_other", "label": "Other: Specify", "checked": false }
+              ]
+            },
+
+            "caregiver_instructions": { "type": "textarea" },
+            "needs_special_equipment_requirements_issues": { "type": "textarea" }
+          }
+        },
+
+        {
+          "id": "positioning",
+          "title": "POSITIONING",
+          "acuity_level": { "type": "number", "allowed": [1, 2, 3, 4] },
+
+          "service_plan": {
+            "checkboxes": [
+              { "key": "pos_assist_into_bed_or_chair", "label": "Assist resident into bed or chair.", "checked": false },
+              { "key": "pos_use_turning_schedule", "label": "Use Turning Schedule.", "checked": false },
+              { "key": "pos_turn_every_2_hours", "label": "Turn resident every two hours.", "checked": false },
+              { "key": "pos_monitor_special_mattress", "label": "Monitor special mattress.", "checked": false },
+              { "key": "pos_monitor_bedding_wrinkles", "label": "Monitor bedding for wrinkles.", "checked": false },
+              { "key": "pos_cue_pressure_releases_hourly_wc", "label": "Cue pressure releases every hour for wheelchair resident.", "checked": false },
+              { "key": "pos_monitor_wc_pad", "label": "Monitor for special wheelchair pad use.", "checked": false },
+              { "key": "pos_place_cushions_as_needed", "label": "Place cushions in chair as needed.", "checked": false },
+              { "key": "pos_fluff_position_pillows", "label": "Fluff and position bed pillows for comfort.", "checked": false },
+              { "key": "pos_elevate_prop_extremities", "label": "Elevate or prop extremities as needed for comfort.", "checked": false },
+              { "key": "pos_monitor_swollen_ankles_arms", "label": "Monitor for swollen ankles or arms.", "checked": false },
+              { "key": "pos_observe_body_alignment", "label": "Observe body alignment for comfort.", "checked": false },
+              { "key": "pos_remind_elevate_legs", "label": "Remind resident to elevate legs.", "checked": false },
+              { "key": "pos_monitor_pressure_redness", "label": "Monitor pressure areas for redness.", "checked": false },
+              { "key": "pos_reposition_when_requested", "label": "Reposition resident when requested.", "checked": false }
+            ],
+            "other": { "type": "array", "items": { "type": "text" } }
+          },
+
+          "goal": { "type": "textarea" },
+
+          "negotiated_care_plan": {
+            "caregiver_instructions": { "type": "textarea" },
+            "needs_special_equipment_requirements_issues": { "type": "textarea" }
+          }
+        },
+
+        {
+          "id": "bathing",
+          "title": "BATHING",
+          "acuity_level": { "type": "number", "allowed": [1, 2, 3, 4] },
+
+          "service_plan": {
+            "checkboxes": [
+              { "key": "bath_remind_encourage", "label": "Remind and encourage bathing.", "checked": false },
+              { "key": "bath_promote_safety_equipment", "label": "Promote use of safety equipment in the bathroom.", "checked": false },
+              { "key": "bath_prepare_bathroom_before_after", "label": "Prepare bathroom before and after resident use.", "checked": false },
+              { "key": "bath_monitor_safety_distant_sba", "label": "Monitor resident for safety - distant SBA", "checked": false },
+              { "key": "bath_standby_assist_safety", "label": "Provide stand by assist for safety.", "checked": false },
+              { "key": "bath_wash_dry_upper_ext", "label": "Wash and dry upper extremities", "checked": false },
+              { "key": "bath_wash_dry_head_neck_chest", "label": "Wash and dry head, neck and chest -", "checked": false },
+              { "key": "bath_wash_dry_lower_ext", "label": "Wash and dry lower extremities.", "checked": false },
+              { "key": "bath_wash_dry_back", "label": "Wash and dry back", "checked": false },
+              { "key": "bath_wash_dry_perineal", "label": "Wash and dry perineal area", "checked": false },
+              { "key": "bath_assist_shower", "label": "Assist with shower.", "checked": false },
+              { "key": "bath_assist_tub", "label": "Assist with tub bath.", "checked": false },
+              { "key": "bath_assist_bed_bath", "label": "Assist with bed bath.", "checked": false },
+              { "key": "bath_give_bed_bath", "label": "Give bed bath.", "checked": false },
+              { "key": "bath_assist_shampoo_conditioner", "label": "Assist with shampoo and conditioner as needed.", "checked": false },
+              { "key": "bath_wash_hair_rinse", "label": "Wash hair and rinse completely.", "checked": false },
+              { "key": "bath_apply_lotion_prn", "label": "Apply desired lotion after bath and PRN.", "checked": false },
+              { "key": "bath_assist_dress_warm_prevent_chill", "label": "Assist with dressing or wrapping warmly before opening the bathroom door to prevent chilling.", "checked": false },
+              { "key": "bath_monitor_pressure_ulcers_skin", "label": "Monitor for pressure ulcers and other skin problems.", "checked": false },
+              { "key": "bath_document_report_skin_problems", "label": "Document and report any skin problems observed immediately.", "checked": false }
+            ],
+            "other": { "type": "array", "items": { "type": "text" } }
+          },
+
+          "goal": { "type": "textarea" },
+
+          "negotiated_care_plan": {
+            "bathroom_equipment": {
+              "type": "checkbox_group",
+              "items": [
+                { "key": "bath_equipment_grab_bars", "label": "Grab bars", "checked": false },
+                { "key": "bath_equipment_shower_chair", "label": "Shower chair", "checked": false },
+                { "key": "bath_equipment_hand_held_shower", "label": "Hand-held shower", "checked": false },
+                { "key": "bath_equipment_other", "label": "Other:", "checked": false }
+              ]
+            },
+            "shower_days": { "type": "text" },
+            "time": { "type": "text" },
+            "caregiver_instructions": { "type": "textarea" },
+            "needs_special_equipment_requirements_issues": { "type": "textarea" },
+            "notes_and_updates": { "type": "textarea" }
+          }
+        },
+
+        {
+          "id": "grooming_and_personal_hygiene",
+          "title": "GROOMING AND PERSONAL HYGIENE",
+          "acuity_level": { "type": "number", "allowed": [1, 2, 3, 4] },
+
+          "service_plan": {
+            "checkboxes": [
+              { "key": "hygiene_wash_hands", "label": "Wash resident's hands.", "checked": false },
+              { "key": "hygiene_cue_brush_teeth", "label": "Cue resident to brush teeth.", "checked": false },
+              { "key": "hygiene_setup_equipment", "label": "Set up hygiene equipment for resident.", "checked": false },
+              { "key": "hygiene_brush_comb_hair", "label": "Brush and comb hair.", "checked": false },
+              { "key": "hygiene_file_clean_nails", "label": "File and clean nails.", "checked": false },
+              { "key": "hygiene_nail_polish_prn", "label": "Apply nail polish – PRN.", "checked": false },
+              { "key": "hygiene_assist_brush_teeth_prn", "label": "Assist to brush teeth prn for adequate hygiene.", "checked": false },
+              { "key": "hygiene_brush_teeth_prn", "label": "Brush teeth - PRN.", "checked": false },
+              { "key": "hygiene_mouth_care", "label": "Provide mouth care.", "checked": false },
+              { "key": "hygiene_denture_care", "label": "Provide denture care.", "checked": false },
+              { "key": "hygiene_setup_shaving_utensils", "label": "Set up shaving utensils.", "checked": false },
+              { "key": "hygiene_assist_shave", "label": "Assist with shave.", "checked": false },
+              { "key": "hygiene_shave_prn", "label": "Shave resident-PRN.", "checked": false },
+              { "key": "hygiene_deodorant_powder", "label": "Assist with personal items such as deodorant or powder.", "checked": false },
+              { "key": "hygiene_makeup_prn", "label": "Assist with make-up – PRN.", "checked": false }
+            ],
+            "other": { "type": "array", "items": { "type": "text" } }
+          },
+
+          "goal": { "type": "textarea" },
+
+          "negotiated_care_plan": {
+            "razor_type": { "type": "text" },
+            "dentures_specify": { "type": "text" },
+            "nail_care": { "type": "text" },
+            "caregiver_instructions": { "type": "textarea" },
+            "needs_special_equipment_requirements_issues": { "type": "textarea" }
+          }
+        },
+
+        {
+          "id": "dressing",
+          "title": "DRESSING",
+          "acuity_level": { "type": "number", "allowed": [1, 2, 3, 4] },
+
+          "service_plan": {
+            "resident_baseline": {
+              "checkboxes": [
+                { "key": "dress_resident_chooses_own_clothes", "label": "Resident chooses own clothes.", "checked": false },
+                { "key": "dress_resident_dresses_self", "label": "Resident dresses self appropriately.", "checked": false }
+              ]
+            },
+            "checkboxes": [
+              { "key": "dress_assist_choice", "label": "Assist resident in choice of clothing.", "checked": false },
+              { "key": "dress_observe_positioning_comfort", "label": "Observe positioning of clothing for comfort.", "checked": false },
+              { "key": "dress_place_within_reach", "label": "Place clothing within resident's reach.", "checked": false },
+              { "key": "dress_cue_dress_self", "label": "Cue resident to dress self.", "checked": false },
+              { "key": "dress_assist_buttons_snaps_ties", "label": "Assist resident with buttons, snaps, ties and/or buckles.", "checked": false },
+              { "key": "dress_assist_braces_splints", "label": "Assist resident with braces or splints.", "checked": false },
+              { "key": "dress_assist_support_hose", "label": "Assist resident with support hose", "checked": false },
+              { "key": "dress_upper_body", "label": "Assist resident to dress upper body", "checked": false },
+              { "key": "dress_lower_body", "label": "Assist resident to dress lower body", "checked": false },
+              { "key": "dress_put_on_footwear", "label": "Assist resident to put on footwear.", "checked": false },
+              { "key": "dress_clothe_prn", "label": "Clothe resident - PRN.", "checked": false },
+              { "key": "dress_weather_appropriate", "label": "Remind resident to dress appropriately for the weather.", "checked": false },
+              { "key": "dress_monitor_rips_tears_clean", "label": "Monitor clothing for rips, tears and cleanliness.", "checked": false },
+              { "key": "dress_laundered_in_room", "label": "Place laundered clothing in room.", "checked": false },
+              { "key": "dress_dirty_to_laundry", "label": "Place dirty clothing in laundry room.", "checked": false }
+            ],
+            "other": { "type": "array", "items": { "type": "text" } }
+          },
+
+          "goal": { "type": "textarea" },
+
+          "negotiated_care_plan": {
+            "brace_type": { "type": "text" },
+            "support_hose": { "type": "text" },
+            "splint": { "type": "text" },
+            "other": { "type": "text" },
+            "caregiver_instructions": { "type": "textarea" },
+            "needs_special_equipment_requirements_issues": { "type": "textarea" }
+          }
+        },
+
+        {
+          "id": "medication_regime",
+          "title": "MEDICATION REGIME",
+          "acuity_level": { "type": "number", "allowed": [1, 2, 3, 4] },
+
+          "service_plan": {
+            "checkboxes": [
+              { "key": "med_follow_doctors_orders", "label": "Follow Doctors orders regarding use of prescribed medications.", "checked": false },
+              { "key": "med_remind_take_on_time", "label": "Remind resident to take medications at appropriate times per written doctor order.", "checked": false },
+              { "key": "med_monitor_vital_signs_monthly", "label": "Monitor Vital Signs monthly.", "checked": false },
+              { "key": "med_log_given_consumed", "label": "Log all medications given and consumed by resident.", "checked": false },
+              { "key": "med_pharmacy_sets_up", "label": "Pharmacy will set up medications.", "checked": false },
+              { "key": "med_nurse_sets_up", "label": "Nurse will set up medications.", "checked": false },
+              { "key": "med_family_sets_up", "label": "Family will set up medications.", "checked": false },
+              { "key": "med_keep_locked", "label": "Keep medications in a locked unit.", "checked": false },
+              { "key": "med_assist_wac", "label": "Assist with medications in compliance with WAC.", "checked": false },
+              { "key": "med_administer_wac", "label": "Administer medications in compliance with WAC.", "checked": false },
+              { "key": "med_observe_document_side_effects", "label": "Observe and document side effects of medications.", "checked": false },
+              { "key": "med_observe_document_behavior_reaction", "label": "Observe and document changes in behavior or reaction to medications.", "checked": false },
+              { "key": "med_other_crush_administer_soft_food", "label": "Other: Crush medication, and administer in soft food.", "checked": false },
+              { "key": "med_sign_out_if_out_of_home", "label": "Sign out medications to client or responsible party if client is to be out of the home.", "checked": false },
+              { "key": "med_monitor_psychotropic_side_effects", "label": "Monitor Resident for Side Effects of Psychotropic Medications, if ordered by MD.*", "checked": false }
+            ]
+          },
+
+          "goal": { "type": "textarea" },
+
+          "negotiated_care_plan": {
+            "rn_delegation_needed": { "type": "text" },
+            "special_equipment_specify": { "type": "textarea" },
+
+            "psychopharmacological_medications_required": {
+              "type": "checkbox_group_single",
+              "items": [
+                { "key": "psych_meds_required_yes", "label": "Yes", "checked": false },
+                { "key": "psych_meds_required_no", "label": "No", "checked": false }
+              ]
+            },
+            "psych_meds_description_and_side_effects": { "type": "textarea" },
+
+            "caregiver_instructions": { "type": "textarea" },
+            "needs_special_equipment_requirements_issues": { "type": "textarea" }
+          }
+        },
+
+        {
+          "id": "nighttime_assists_sleeping_habits",
+          "title": "NIGHTTIME ASSISTS & SLEEPING HABITS",
+          "acuity_level": { "type": "number", "allowed": [1, 2, 3, 4] },
+
+          "service_plan": {
+            "checkboxes": [
+              { "key": "night_give_call_bell", "label": "Give call bell.", "checked": false },
+              { "key": "night_setup_monitor_if_requested", "label": "Set up monitor- if resident requests.", "checked": false },
+              { "key": "night_setup_commode", "label": "Set up commode as needed.", "checked": false },
+              { "key": "night_setup_urinal", "label": "Set up urinal as needed.", "checked": false },
+              { "key": "night_setup_condom_catheter_bag", "label": "Set up condom catheter and bag as needed.", "checked": false },
+              { "key": "night_offer_bedside_snack", "label": "Offer bedside snack", "checked": false },
+              { "key": "night_comfort_measures_encourage_sleep", "label": "Provide individual comfort measures in room to encourage sleep.", "checked": false },
+              { "key": "night_staff_monitoring_needed", "label": "Staff at night needed for monitoring.", "checked": false },
+              { "key": "night_redirect_to_bedroom_sleep", "label": "Redirect to bedroom or sleep during the night.", "checked": false }
+            ],
+            "other": { "type": "array", "items": { "type": "text" } }
+          },
+
+          "goal": { "type": "textarea" },
+
+          "negotiated_care_plan": {
+            "caregiver_instructions": { "type": "textarea" },
+            "needs_special_equipment_requirements_issues": { "type": "textarea" }
+          }
+        }
+      ]
+    },
+
+    "laundry_and_housekeeping": {
+      "title": "LAUNDRY & HOUSEKEEPING",
+      "service_plan": {
+        "checkboxes": [
+          { "key": "house_launder_bed_linens_daily", "label": "Launder bed linens daily.", "checked": false },
+          { "key": "house_launder_bed_linens_weekly_prn", "label": "Launder bed linens weekly or as needed.", "checked": false },
+          { "key": "house_make_bed_daily", "label": "Make bed daily.", "checked": false },
+          { "key": "house_tidy_bedroom_daily", "label": "Tidy up bedroom daily.", "checked": false },
+          { "key": "house_gather_soiled_laundry_wash_dry_fold_put_away", "label": "Gather soiled laundry, wash, dry, fold and put it away.", "checked": false },
+          { "key": "house_vacuum_dust_weekly", "label": "Vacuum and dust rooms weekly.", "checked": false },
+          { "key": "house_empty_wastebaskets_daily", "label": "Empty wastebaskets daily.", "checked": false },
+          { "key": "house_keep_walkways_clutter_free", "label": "Keep walkways free of clutter.", "checked": false }
+        ],
+        "other": { "type": "array", "items": { "type": "text" } }
+      },
+      "goals": { "type": "array", "items": { "type": "text" } }
+    },
+
+    "part_5_significant_known_behaviors_or_symptoms": {
+      "title": "PART 5 - SIGNIFICANT KNOWN BEHAVIORS OR SYMPTOMS",
+      "behavior_rows": {
+        "type": "array",
+        "items": {
+          "behavior": { "type": "checkbox_item" },
+          "freq": { "type": "text" },
+          "loc": { "type": "number" },
+          "special_care_needed": { "type": "textarea" }
+        }
+      },
+
+      "behavior_groups": {
+        "type": "object",
+        "groups": {
+          "no_identified_behavioral_problems": [
+            { "key": "behavior_none", "label": "No identified behavioral problems.", "checked": false }
+          ],
+          "environmental_safety": [
+            { "key": "behavior_exterior_interior_door_alarms", "label": "Exterior / Interior door alarms", "checked": false },
+            { "key": "behavior_personal_alarm_specify", "label": "Personal alarm: specify:", "checked": false }
+          ],
+          "general": [
+            { "key": "behavior_wandering_in_house", "label": "Wandering in house", "checked": false },
+            { "key": "behavior_exit_seeking", "label": "Exit-Seeking", "checked": false },
+            { "key": "behavior_night_time_disruption", "label": "Night-time disruption.", "checked": false }
+          ],
+          "verbally_abusive_to_others": [
+            { "key": "behavior_screaming_yelling", "label": "Screaming/Yelling", "checked": false },
+            { "key": "behavior_swearing", "label": "Swearing", "checked": false },
+            { "key": "behavior_threatens_intimidates", "label": "Threatens/Intimidates", "checked": false }
+          ],
+          "physically_abusive": [
+            { "key": "behavior_physically_abusive_to_staff", "label": "Physically abusive to staff:", "checked": false },
+            { "key": "behavior_physically_abusive_to_others", "label": "Physically abusive to others", "checked": false },
+            { "key": "behavior_physically_abusive_to_self", "label": "Physically abusive to self", "checked": false }
+          ],
+          "disruptive": [
+            { "key": "behavior_exposes_self", "label": "Exposes self", "checked": false },
+            { "key": "behavior_public_toileting", "label": "Public toileting", "checked": false },
+            { "key": "behavior_throws_food_or_feces", "label": "Throws food or feces", "checked": false },
+            { "key": "behavior_hoards_hides_items", "label": "Hoards/Hides items", "checked": false },
+            { "key": "behavior_sexually_acts_out", "label": "Sexually acts out", "checked": false },
+            { "key": "behavior_breaks_items_throws_items", "label": "Breaks items/Throws items", "checked": false },
+            { "key": "behavior_rummages_others_belongings", "label": "Rummages in others’ belongings", "checked": false }
+          ],
+          "resistive_to_care": [
+            { "key": "behavior_resistive_medications", "label": "Medications", "checked": false },
+            { "key": "behavior_resistive_other", "label": "Other:", "checked": false }
+          ],
+          "dangerous_to_self": [
+            { "key": "behavior_high_risk_falls_no_help", "label": "High risk of falls and doesn't ask for help", "checked": false },
+            { "key": "behavior_eating_disorder", "label": "Eating Disorder", "checked": false },
+            { "key": "behavior_hx_alcohol_abuse", "label": "Hx Alcohol Abuse", "checked": false },
+            { "key": "behavior_drug_abuse", "label": "Drug Abuse", "checked": false },
+            { "key": "behavior_dangerous_to_self_other", "label": "Other:", "checked": false }
+          ],
+          "dangerous_to_caregivers_or_others": [
+            { "key": "behavior_pyromania", "label": "Pyromania", "checked": false },
+            { "key": "behavior_unsafe_smoking", "label": "Unsafe smoking", "checked": false },
+            { "key": "behavior_dangerous_to_others_other", "label": "Other:", "checked": false }
+          ],
+          "mood_or_personality_disorders": [
+            { "key": "behavior_mood_swings", "label": "Mood Swings", "checked": false },
+            { "key": "behavior_frequent_crying", "label": "Frequent Crying", "checked": false },
+            { "key": "behavior_mania", "label": "Mania", "checked": false },
+            { "key": "behavior_depression", "label": "Depression", "checked": false },
+            { "key": "behavior_delusions", "label": "Delusions", "checked": false },
+            { "key": "behavior_hallucinations", "label": "Hallucinations", "checked": false },
+            { "key": "behavior_suicidal_ideas", "label": "Suicidal Ideas", "checked": false },
+            { "key": "behavior_paranoia", "label": "Paranoia", "checked": false },
+            { "key": "behavior_mood_other", "label": "Other:", "checked": false }
+          ]
+        }
+      },
+
+      "behavior_level_of_care_scale": [
+        { "value": 0, "label": "No behavioral Problems." },
+        { "value": 1, "label": "Verbal reassurance, redirection and monitoring required by Caregivers." },
+        { "value": 2, "label": "Physical assistance from Caregiver needed to accomplish care, medicate or redirect behavior." },
+        { "value": 3, "label": "Requires physical assistance from 2 or more caregivers to accomplish care, medicate or redirect behavior." }
+      ],
+
+      "assessor_notes": { "type": "textarea" }
+    },
+
+    "compliance_and_signatures": {
+      "statements": {
+        "type": "checkbox_group",
+        "items": [
+          { "key": "statement_problems_needs_stated", "label": "The Resident’s specific problems and needs are stated and listed above.", "checked": false },
+          { "key": "statement_resident_compliant_services", "label": "The Resident is compliant with all the services offered by the Adult Family Home.", "checked": false },
+          { "key": "statement_goals_preferences_listed", "label": "The Resident’s goals and preferences are listed in Part 10 & 12.", "checked": false },
+          { "key": "statement_needs_met_described", "label": "Descriptions of how the Resident’s needs could be met are completed.", "checked": false },
+          { "key": "statement_resident_chooses_not_accept", "label": "The Resident chooses not to accept these services, activities or medications regime as listed.", "checked": false }
+        ]
+      },
+
+      "signatures": {
+        "individual": {
+          "name": { "type": "text" },
+          "dob": { "type": "date" },
+          "date_of_original_plan": { "type": "date" },
+          "signature": { "type": "text" },
+          "date": { "type": "date" }
+        },
+        "provider": {
+          "signature": { "type": "text" },
+          "date": { "type": "date" }
+        },
+        "poa_or_representative": {
+          "signature": { "type": "text" },
+          "date": { "type": "date" }
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "review_date": { "type": "date" },
+            "review_type": {
+              "type": "checkbox_group",
+              "items": [
+                { "key": "review_preliminary_service_plan", "label": "Preliminary Service Plan", "checked": false },
+                { "key": "review_negotiated_care_plan", "label": "Negotiated Care Plan", "checked": false },
+                { "key": "review_review", "label": "Review", "checked": false }
+              ]
+            }
+          }
+        }
+      },
+
+      "caregiver_acknowledgement": {
+        "type": "array",
+        "items": {
+          "date": { "type": "date" },
+          "caregiver_signature": { "type": "text" }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+

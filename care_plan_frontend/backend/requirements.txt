@@ -1,0 +1,24 @@
+# Django and Django REST Framework
+Django>=5.0,<6.0
+djangorestframework>=3.14.0
+django-cors-headers>=4.3.0
+
+# OpenAI API
+openai>=1.0.0
+
+# PDF Processing
+PyMuPDF>=1.23.0  # fitz module
+
+# Image Processing and OCR
+Pillow>=10.0.0  # PIL module
+pytesseract>=0.3.10
+
+# Data Processing
+numpy>=1.24.0
+
+# Environment Variables
+python-dotenv>=1.0.0
+
+
+opencv-python>=4.9.0.80
+
