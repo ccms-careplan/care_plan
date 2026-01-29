@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8" />
@@ -62,4 +62,202 @@
 </div>
 
 </body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>AFH Service Plan</title>
+
+  <style>
+    @page { size: A4; margin: 15mm; }
+
+    body { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #000; }
+
+    h1, h2 { text-align: center; margin: 0; }
+    h1 { font-size: 14px; }
+    h2 { font-size: 13px; }
+
+    .box { border: 2px solid #000; padding: 6px; margin-bottom: 8px; }
+    .directions { font-size: 9px; line-height: 1.3; }
+
+    .section-title {
+      background: #1f3cff;
+      color: #fff;
+      font-weight: bold;
+      padding: 3px 6px;
+      margin-top: 10px;
+      font-size: 11px;
+    }
+
+    .subsection-title {
+      font-weight: bold;
+      margin: 6px 0 4px;
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+
+    .two-col {
+      display: table;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .col {
+      display: table-cell;
+      vertical-align: top;
+      border: 1px solid #000;
+      padding: 6px;
+      width: 50%;
+    }
+
+    .checkbox {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border: 1px solid #000;
+      margin-right: 4px;
+      line-height: 10px;
+    }
+
+    .checked { background: #000; }
+
+    ul { list-style: none; padding: 0; margin: 4px 0; }
+    li { margin-bottom: 3px; }
+
+    .notes { border: 1px solid #000; height: 60px; margin-top: 6px; }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 9px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .page-number { text-align: center; margin-top: 10px; font-size: 9px; }
+    .page-break { page-break-before: always; }
+  </style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<h1>AFH Master Forms ©</h1>
+<h2>SERVICE PLAN (Part B)</h2>
+<h2>NEGOTIATED CARE PLAN (Part C)</h2>
+
+<div class="box directions">
+  <strong>Directions:</strong><br>
+  In each activity of daily living check the assessed functional acuity level as determined by the Assessor.<br>
+  <strong>For the Service Plan:</strong> Check the boxes for services staff will provide.<br>
+  <strong>For the Negotiated Care Plan:</strong> Fill in resident preferences and care needs.
+</div>
+
+<div class="section-title">PART 12 – FUNCTIONAL ABILITY</div>
+
+<!-- ================= PAGE 1 : EATING & DIET ================= -->
+
+<div class="subsection-title">
+  EATING AND DIET – Ability to take nourishment to maintain health
+</div>
+
+<div class="box">
+  <strong>ACUITY LEVEL OF CARE:</strong><br>
+  <span class="checkbox {% if content.functional_abilities.eating_and_diet.acuity_level == 1 %}checked{% endif %}"></span> 1 – Independent<br>
+  <span class="checkbox {% if content.functional_abilities.eating_and_diet.acuity_level == 2 %}checked{% endif %}"></span> 2 – Verbal prompts only<br>
+  <span class="checkbox {% if content.functional_abilities.eating_and_diet.acuity_level == 3 %}checked{% endif %}"></span> 3 – Physical assistance<br>
+  <span class="checkbox {% if content.functional_abilities.eating_and_diet.acuity_level == 4 %}checked{% endif %}"></span> 4 – Dependent on caregiver
+</div>
+
+<div class="two-col">
+  <div class="col">
+    <strong>(Service Plan – Part B)</strong>
+    <ul>
+      {% for task in content.functional_abilities.eating_and_diet.caregiver_tasks %}
+      <li><span class="checkbox checked"></span> {{ task }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="col">
+    <strong>GOALS:</strong><br>
+    {{ content.functional_abilities.eating_and_diet.goals }}<br><br>
+
+    <strong>Special Diet:</strong><br>
+    {{ content.functional_abilities.eating_and_diet.special_diet }}
+  </div>
+</div>
+
+<div class="subsection-title">Notes and Updates</div>
+<div class="notes"></div>
+
+<div class="footer">
+  <div>Name: {{ content.resident_profile.name }}</div>
+  <div>DOB: {{ content.resident_profile.dob }}</div>
+  <div>Date: {{ content.generated_at }}</div>
+</div>
+
+<div class="page-number">1</div>
+
+<div class="page-break"></div>
+
+<!-- ================= REMAINING ADL PAGES ================= -->
+
+{% for key, section in content.functional_abilities.items %}
+{% if key != "eating_and_diet" %}
+
+<div class="subsection-title">
+  {{ key|cut:"_"|upper }} – Ability related to this activity
+</div>
+
+<div class="box">
+  <strong>ACUITY LEVEL OF CARE:</strong><br>
+  <span class="checkbox {% if section.acuity_level == 1 %}checked{% endif %}"></span> 1 – Independent
+  <span class="checkbox {% if section.acuity_level == 2 %}checked{% endif %}"></span> 2 – Verbal prompts
+  <span class="checkbox {% if section.acuity_level == 3 %}checked{% endif %}"></span> 3 – Physical assistance
+  <span class="checkbox {% if section.acuity_level == 4 %}checked{% endif %}"></span> 4 – Dependent
+</div>
+
+<div class="two-col">
+  <div class="col">
+    <strong>(Service Plan – Part B)</strong>
+    <ul>
+      {% for task in section.caregiver_tasks %}
+      <li><span class="checkbox checked"></span> {{ task }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="col">
+    <strong>GOALS:</strong><br>
+    {{ section.goals }}<br><br>
+
+    {% if section.special_diet %}
+      <strong>Special Diet:</strong><br>
+      {{ section.special_diet }}<br><br>
+    {% endif %}
+
+    {% if section.equipment %}
+      <strong>Equipment:</strong><br>
+      {{ section.equipment|join:", " }}
+    {% endif %}
+  </div>
+</div>
+
+<div class="subsection-title">Notes and Updates</div>
+<div class="notes"></div>
+
+{% if not forloop.last %}
+<div class="page-break"></div>
+{% endif %}
+{% endif %}
+{% endfor %}
+
+</body>
 </html>
+

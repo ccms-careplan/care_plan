@@ -50,6 +50,10 @@ from django.db import models
 from residents.models import Resident
 from assessments.models import Assessment
 from companies.models import Company
+from django.contrib.auth import get_user_model
+
+
+User = get_user_model()
 
 class CarePlan(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
@@ -64,6 +68,12 @@ class CarePlan(models.Model):
         null=True,
         blank=True
     )
+
+    signed_by = models.ForeignKey(
+        User, null=True, blank=True, on_delete=models.SET_NULL
+    )
+    signed_at = models.DateTimeField(null=True, blank=True)
+    pdf_hash = models.CharField(max_length=64, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
 

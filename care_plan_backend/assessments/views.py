@@ -13,7 +13,7 @@ class AssessmentViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         assessment = serializer.save()
 
-        if assessment.source_type == 'pdf' and assessment.pdf_file:
+        if assessment.source_type == 'pdf' and assessment.document_file:
             process_assessment_pdf.delay(assessment.id)
 
 

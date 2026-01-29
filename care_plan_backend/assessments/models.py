@@ -9,7 +9,9 @@ class Assessment(models.Model):
     resident = models.ForeignKey(Resident, on_delete=models.CASCADE)
     
     source_type = models.CharField(max_length=20, choices=SOURCE_TYPES)
-    pdf_file = models.FileField(upload_to='assessments/doc', null=True, blank=True)
+    # pdf_file = models.FileField(upload_to='assessments/doc', null=True, blank=True)
+
+    document_file = models.FileField(upload_to="assessments/doc", null=True, blank=True)
 
     raw_extracted_text = models.TextField(blank=True)
     structured_data = models.JSONField(blank=True, null=True)

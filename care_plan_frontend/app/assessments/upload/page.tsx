@@ -62,7 +62,7 @@ export default function UploadAssessmentPage() {
   formData.append("company", "1") // adjust dynamically if needed
   formData.append("resident", patientId)
   formData.append("source_type", "pdf")
-  formData.append("pdf_file", file)
+  formData.append("document_file", file)
 
   try {
     
@@ -192,7 +192,7 @@ export default function UploadAssessmentPage() {
   const handleAccept = (index: number) => {            
     const updated = [...extractedFields]
     updated[index].accepted = true   
-    setExtractedFields(updated)                             
+    setExtractedFields(updated)                                     
   }
 
   const handleReject = (index: number) => {
@@ -249,13 +249,20 @@ export default function UploadAssessmentPage() {
                   <Label htmlFor="file-upload" className="cursor-pointer">
                     <span className="text-primary hover:underline font-medium">Choose a file</span>
                   </Label>
-                  <Input
+                  {/* <Input
                     id="file-upload"
                     type="file"
                     accept=".pdf"
                     onChange={handleFileChange}
                     className="hidden"
-                  />
+                  /> */}
+                  <Input
+                  id="file-upload"
+                  type="file"
+                  accept=".pdf,.doc,.docx"
+                  onChange={handleFileChange}
+                  className="hidden"
+                />
                   {file && (
                     <div className="mt-4 flex items-center justify-center gap-2">
                       <FileText className="h-5 w-5 text-primary" />

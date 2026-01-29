@@ -4,12 +4,14 @@ from rest_framework import status
 from rest_framework import viewsets
 from assessments.models import Assessment
 from django.http import FileResponse
-from .service.pdf_generator import generate_careplan_pdf
+#from .service.pdf_generator import generate_careplan_pdf
 from .models import CarePlan
 from .serializers import CarePlanSerializer
-from .services import generate_care_plan_content
+from .services import generate_care_plan_content   
 
-class CarePlanViewSet(viewsets.ModelViewSet):
+from .service.pdf_generator import generate_and_sign_careplan_pdf
+
+class CarePlanViewSet(viewsets.ModelViewSet):      
 
     queryset = CarePlan.objects.all()
     serializer_class = CarePlanSerializer
@@ -52,16 +54,16 @@ class CarePlanViewSet(viewsets.ModelViewSet):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     
 
-    @action(detail=True, methods=["post"], url_path="generate-pdf")
-    def generate_pdf(self, request, pk=None):
-        care_plan = self.get_object()
+    # @action(detail=True, methods=["post"], url_path="generate-pdf")
+    # def generate_pdf(self, request, pk=None):
+    #     care_plan = self.get_object()
 
-        if not care_plan.pdf_file:
-            generate_careplan_pdf(care_plan)
+        # if not care_plan.pdf_file:
+        #     generate_careplan_pdf(care_plan)
 
-        return Response({
-            "pdf_url": care_plan.pdf_file.url
-        })
+        # return Response({
+        #     "pdf_url": care_plan.pdf_file.url
+        # })
     
 
     @action(detail=True, methods=["get"], url_path="download-pdf")
@@ -81,6 +83,45 @@ class CarePlanViewSet(viewsets.ModelViewSet):
         )
 
 
+
+    @action(detail=True, methods=["post"], url_path="sign-pdf")
+    def sign_pdf(self, request, pk=None):
+        care_plan = self.get_object()
+
+        if care_plan.pdf_file:
+            return Response(
+                # {"detail": "Care plan already signed"},
+                # status=status.HTTP_400_BAD_REQUEST
+                {
+                    "pdf_url": care_plan.pdf_file.url
+                }
+            )
+
+        care_plan = generate_and_sign_careplan_pdf(
+            care_plan,
+            signed_by=request.user
+        )
+
+        return Response({
+            "pdf_url": care_plan.pdf_file.url,
+            "signed_by": request.user.username,
+            "signed_at": care_plan.signed_at,
+            "pdf_hash": care_plan.pdf_hash,
+        })
+
+    @action(detail=True, methods=["get"], url_path="verify-pdf")
+    def verify_pdf(self, request, pk=None):
+        care_plan = self.get_object()
+
+        if not care_plan.pdf_file:
+            return Response({"valid": False})
+
+        pdf_bytes = care_plan.pdf_file.read()
+        current_hash = generate_pdf_hash(pdf_bytes)
+
+        return Response({
+            "valid": current_hash == care_plan.pdf_hash
+        })
 
 
 

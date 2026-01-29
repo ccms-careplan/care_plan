@@ -11,13 +11,44 @@ export default function CarePlanPdfPage() {
   const [pdfUrl, setPdfUrl] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
 
+  const downloadPdf = async () => {
+  const session = getAuthSession()
+  if (!session?.token) return
+
+  const response = await fetch(
+    `http://127.0.0.1:8000/api/careplans/${id}/download-pdf/`,
+    {
+      headers: {
+        Authorization: `Bearer ${session.token}`,
+      },
+    }
+  );
+
+  if (!response.ok) {
+    alert("Failed to download PDF");
+    return;
+  }
+
+  const blob = await response.blob();
+  const url = window.URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `careplan-${id}.pdf`;
+  document.body.appendChild(a);
+  a.click();
+
+  a.remove();
+  window.URL.revokeObjectURL(url);
+};
+
   useEffect(() => {
     async function generatePdf() {
       const session = getAuthSession()
       if (!session?.token) return
 
       const res = await fetch(
-        `http://127.0.0.1:8000/api/careplans/${id}/generate-pdf/`,
+        `http://127.0.0.1:8000/api/careplans/${id}/sign-pdf/`,
         {
           method: "POST",
           headers: {
@@ -50,13 +81,9 @@ export default function CarePlanPdfPage() {
               </a>
             </Button>
 
-            <Button variant="outline" asChild>
-              <a
-                href={`http://127.0.0.1:8000/api/careplans/${id}/download-pdf/`}
-              >
-                Download PDF
-              </a>
-            </Button>
+           <Button variant="outline" onClick={downloadPdf}>
+            Download PDF
+          </Button>
           </>
         )}
       </div>
